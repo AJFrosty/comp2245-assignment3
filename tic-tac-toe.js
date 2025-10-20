@@ -13,6 +13,7 @@ window.onload = function () {
         main[i].addEventListener("mouseover", function () { hoverOver(main, i); });
         main[i].addEventListener("mouseout", function () { hoverOff(main, i); });
         main[i].addEventListener("click", function () { choice(main, i); });
+        document.getElementsByTagName("button")[0].addEventListener("click", function () {clicked(main); });
 
     }
 };
@@ -76,3 +77,18 @@ let checkWin = function () {
 
     return null;
 }
+
+let clicked = function(main) {
+    state = [["", "", ""], ["", "", ""], ["", "", ""]];
+    current = "X";
+
+    for (let i = 0; i < main.length; i++) {
+        main[i].textContent = "";
+        main[i].classList.remove("X","O");
+    };
+
+    stats = document.getElementById("status");
+    stats.classList.remove("you-won");
+    stats.innerHTML = "Move your mouse over a square and click to play an X or an O.";
+};
+
