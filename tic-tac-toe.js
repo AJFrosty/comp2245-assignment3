@@ -10,7 +10,10 @@ window.onload = function() {
     main[i].classList.add("square");
     main[i].id = `box-${i}`;
 
+    main[i].addEventListener("mouseover", function() {hoverOver(main,i);});
+    main[i].addEventListener("mouseout", function() {hoverOff(main,i);});
     main[i].addEventListener("click", function() { choice(main,i); });
+    
   }
 };
 
@@ -27,5 +30,12 @@ let choice = function(main,i) {
     };
 };
 
+let hoverOver = function(main,i) {
+    main[i].classList.add("hover");
+}
+
+let hoverOff = function(main,i) {
+    main[i].classList.remove("hover");
+}
 
 
